@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import header from '../components/header.astro';
+---
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+<Layout title="maow:3">
+	<main>
+		<div class="header">
+			<ul>
+				<li>
+					<a href="/">Home</a>
+				</li>
+				<li>
+					<a href="/about">About</a>
+				</li>
+				<li>
+					<a href="/contact">Contact</a>
+				</li>
+                <li>
+                    <a href="/group">groups</a>
+                </li>
+			</ul>
+		</div>
+	</main>
+	<h3 class="text-gradient">Welcome to The official resonite groups site!</h1>
+	
+	<p>Ever wondered if resonite had groups like vrchat but they were better in every way?</p>
+	<p>Well, you're in luck! We have a discord server where you can join and meet new people and make new friends!</p>
+	<p>Join our discord server <a href="https://discord.gg/bcUkx3fU" target="_blank">here</a></p>
+
+
+
+	<h2>What is resonite?</h2>
+	<section>
+		A novel digital universe with infinite possibilities. Whether you resonate with people around the world in a casual conversation, playing games and socializing. Or you riff off each other when creating anything from art to programming complex games, you'll find your place here.
+
+	</section>
+	<section>
+		Resonite offers support for a wide variety of hardware and peripherals. In addition to desktop users in VR can express themselves in high fidelity with up to 11-point full-body tracking (FBT), eye, and face tracking. They can also immerse themselves in the world around them with support for various haptic devices.
+	</section>
+	<section>
+		Prototype functions in real-time with this node-based scripting system used to build anything from avatar and world interactivity, to complex systems, and games.
+	</section>
+	<section>
+		Collaboratively build worlds, tools, avatars, and more in real-time. Save your creations to your inventory to be spawned out anytime, anywhere.
+	</section>
+	<p>you can check out resonite at <a href="https://resonite.com">resonite.com</a></p>
+	<br>
+	<br>
+	<br>
+	<h2>What are groups?</h2>
+	<section>
+		Groups are a way to organize and connect with people who share your interests. You can create a group for anything – your family reunion, your after-work sports team, or your book club. All you need is a name and a little bit of time to set up your group. Once you create your group, you can invite people to join, and you can share photos, videos, and updates with them. You can also create events and send messages to your group members.
+	</section>
+	<p>you can check out the groups page <a href="/groups">here</a></p>
+	<div class="affiliation">
+		<p>we are not affiliated with yellow dog man studios or the resonite team members.</p>
+	</div>
+</Layout>
+
+<style>
+	section{
+		margin-bottom: 1rem;
+		background-color: rgba(var(--accent), 0.1);
+		padding: 1rem;
+		border-radius: 8px;
+	}
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	ul {
+		display: flex;
+		justify-content: center;
+		list-style: none;
+		padding: 0;
+	}
+	li {
+		margin: 0 1rem;
+	}
+	a {
+		color: white;
+		text-decoration: none;
+	}
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		font-size: medium
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+</style>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+            <li>
+                <a href="/contact">Contact</a>
+            </li>
+            <li>
+                <a href="/group">groups</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search group">
+    </div>
+    <div id="group-list" class="group-list"></div>
+
+
+
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+
+<style>
+    .search-box {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    .group-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+    
+    }
+    .group-item {
+        background-color: rgba(48, 59, 65, 0.8);
+        padding: 1rem;
+        border-radius: 8px;
+        color: white;
+    }
+
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	ul {
+		display: flex;
+		justify-content: center;
+		list-style: none;
+		padding: 0;
+	}
+	li {
+		margin: 0 1rem;
+	}
+	a {
+		color: white;
+		text-decoration: none;
+        <!-- button style -->
+        padding: 0.5rem 1rem;
+        background-color: #494949;
+        border-radius: 4px;
+        color: white;
+        text-align: center;
+        display: inline-block;
+        margin-top: 1rem;
+
+	}
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+</style>
+
+</body>
+</html>
+<script>
+    const groups = [
+        {
+            name: 'Only Rusks :3',
+            members: 3,
+            description: 'We are the rusks. we do rusk things',
+            link: 'https://www.google.com'
+        },
+        
+    ]
+
+    const groupList = document.querySelector('.group-list')
+    const searchBox = document.querySelector('.search-box input')
+
+    function displayGroups(groups) {
+        groupList.innerHTML = ''
+        groups.forEach(group => {
+            const groupItem = document.createElement('div')
+            groupItem.classList.add('group-item')
+            groupItem.innerHTML = `
+                <h2>${group.name}</h2>
+                <p>${group.members} members</p>
+                <p>${group.description}</p>
+            `
+            if (group.link) {
+                const linkButton = document.createElement('a')
+                linkButton.href = group.link
+                linkButton.target = '_blank'
+                linkButton.textContent = 'Visit Group'
+                groupItem.appendChild(linkButton)
+            }
+            groupList.appendChild(groupItem)
+        })
+    }
+
+    function searchGroups(query) {
+        const filteredGroups = groups.filter(group => {
+            const groupName = group.name.toLowerCase()
+            return groupName.includes(query.toLowerCase())
+        })
+        displayGroups(filteredGroups)
+    }
+
+    searchBox.addEventListener('input', (e) => {
+        const query = e.target.value
+        searchGroups(query)
+    })
+
+    displayGroups(groups)
+</script>
+</script>
